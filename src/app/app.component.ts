@@ -14,22 +14,22 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Checkout',
-      url: '/folder/Checkout',
+      url: '/menu/checkout',
       icon: 'receipt'
     },
     {
       title: 'Transactions',
-      url: '/folder/Transactions',
+      url: '/menu/transactions',
       icon: 'swap-vertical'
     },
     {
       title: 'Items',
-      url: '/folder/Items',
+      url: '/menu/items',
       icon: 'list'
     },
     {
       title: 'Logout',
-      url: '/folder/Exit',
+      url: '/menu/Exit',
       icon: 'exit'
     },
   ];
