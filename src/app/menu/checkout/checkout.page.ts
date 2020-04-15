@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutPage implements OnInit {
 
-  constructor() { }
+  status: 'numbers';
+
+  constructor() {
+    this.status = 'numbers';
+  }
 
   ngOnInit() {
   }
+
+    segmentChanged(ev: any) {
+      console.log('Segment changed', ev);
+      status = ev;
+    }
+
 
 }
