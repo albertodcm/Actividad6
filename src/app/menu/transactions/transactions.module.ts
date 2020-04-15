@@ -13,7 +13,7 @@ import { TransactionsPage } from './transactions.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    TransactionsPageRoutingModule
+    TransactionsPageRoutingModule,
   ],
   declarations: [TransactionsPage]
 })
