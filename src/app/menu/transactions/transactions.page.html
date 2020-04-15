@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" (click)="presentModal()">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Transactions</ion-title>
@@ -15,6 +15,25 @@
 
   <div id="container">
 
+
+
+    <ion-list>
+
+    
+      <!-- Multi-line sliding item with icon options on both sides -->
+      <ion-item-sliding (click)="showTrans()" id="item100">
+        <ion-item href="#">
+          <ion-label>
+            <h2>$0.00</h2>
+            <p>1 item</p>
+          </ion-label>
+          <ion-note slot="end">
+            10:45 AM
+          </ion-note>
+        </ion-item>
+      </ion-item-sliding>
+
+    </ion-list>
 
 
   </div>

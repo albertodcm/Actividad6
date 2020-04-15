@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { TransactionPage } from '../transaction/transaction.page';
 
 @Component({
   selector: 'app-transactions',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsPage implements OnInit {
 
-  constructor() { }
+  constructor(public modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
 
+  async presentModal() {
+    const modal = await this.modalCtrl.create({
+      component: TransactionPage,
+    });
+    modal.present();
+  }
+
+
+
+  showTrans() {
+    this.presentModal();
+  }
 }
