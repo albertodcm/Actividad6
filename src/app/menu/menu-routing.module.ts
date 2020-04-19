@@ -6,7 +6,7 @@ import { MenuPage } from './menu.page';
 const routes: Routes = [
   {
     path: '',
-    component: MenuPage
+    redirectTo: 'checkout', pathMatch: 'full'
   },
   {
     path: 'checkout',

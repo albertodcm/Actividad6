@@ -19,7 +19,7 @@ export class ItemsPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: CreatePage
     });
-    modal.present();
+    return await modal.present();
   }
 
 

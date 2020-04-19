@@ -58,8 +58,8 @@
 
 </ion-content>
 
-<ion-footer>
-  <ion-button shape="round" size="large" (click)="presentModal()">
-    <ion-icon slot="end" name="add" ></ion-icon>
-  </ion-button>
-</ion-footer>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="presentModal()">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

@@ -18,7 +18,7 @@ export class TransactionsPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: TransactionPage,
     });
-    modal.present();
+    return await modal.present();
   }
 
 
