@@ -1,10 +1,49 @@
 <ion-header>
   <ion-toolbar>
     <ion-icon class="padding" size="large" name="arrow-back-outline" (click)="dismiss()"></ion-icon>
-    <ion-title>charge</ion-title>
+    <ion-title>Sale ${{ total }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+
+
+  <ion-item>
+    <ion-label>
+      <h2>Subtotal</h2>
+    </ion-label>
+    <ion-note slot="end" color="secondary">
+      $0.00
+    </ion-note>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <h2>Tax (9.75%)</h2>
+    </ion-label>
+    <ion-note slot="end" color="secondary">
+      $0.00
+    </ion-note>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <h2>Tips</h2>
+    </ion-label>
+    <ion-note slot="end" color="secondary">
+      $0.00
+    </ion-note>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <h2>Total</h2>
+    </ion-label>
+    <ion-note slot="end" color="primary">
+      $0.00
+    </ion-note>
+  </ion-item>
 
 </ion-content>

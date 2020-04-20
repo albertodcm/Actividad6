@@ -18,6 +18,8 @@ import { EditPageModule } from './menu/edit/edit.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ChargePageModule } from './menu/charge/charge.module';
 
+import { IonTextAvatar } from 'ionic-text-avatar';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

@@ -6,4 +6,5 @@ export interface Cart {
     tax: number;
     tips: number;
     total: number;
+    cartId: string;
 }

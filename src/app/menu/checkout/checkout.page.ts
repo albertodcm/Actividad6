@@ -14,8 +14,8 @@ import { ChargePage } from '../charge/charge.page';
 export class CheckoutPage implements OnInit {
 
   cart: Cart;
-  status: 'numbers';
   availableItems: Item[];
+  status: 'numbers';
   balance = '0';
   total = '0';
   inputnueva = true;
@@ -39,9 +39,12 @@ export class CheckoutPage implements OnInit {
   }
 
 
-  async showCharge() {
+  async showCharge(cartId: string) {
     const modal = await this.modalCtrl.create({
       component: ChargePage,
+      componentProps: {
+        total: this.total
+      }
     });
     return await modal.present();
   }
