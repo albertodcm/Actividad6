@@ -21,6 +21,6 @@ export class AuthGuard implements CanLoad {
         return false;
       }
 
-    return true;
+      return true;
   }
 }

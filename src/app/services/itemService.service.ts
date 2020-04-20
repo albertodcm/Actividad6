@@ -10,8 +10,8 @@ export class ItemService {
 
   constructor(private afs: AngularFirestore) { }
 
-  //sirve para hacer el update o cuando se necesite en cualquier otra vista
-  getItem(id: string){
+  // sirve para hacer el update o cuando se necesite en cualquier otra vista
+  getItem(id: string) {
     return this.afs.doc(`items/${id}`).snapshotChanges().pipe(
       map(doc => {
         const data = doc.payload.data() as any;
@@ -47,4 +47,9 @@ export class ItemService {
   deleteItem(id: string) {
     return this.afs.doc(`items/${id}`).delete();
   }
+
+  statusItem(item: Item) {
+    return this.afs.doc(`items/${item.id}`).update(item);
+  }
+
 }

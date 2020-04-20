@@ -15,35 +15,30 @@
 
   <div id="container">
 
-
-
-
-
     <ion-list>
-
   
-      <ion-item-sliding>
+      <ion-item-sliding *ngFor= "let item of availableItems">
         <ion-item>
           <ion-label>
-            <h2>Pizza</h2>
-            <p>Available</p>
+            <h2> {{ item?.name }}</h2>
+            <p>{{ item?.status }}</p>
           </ion-label>
           <ion-note slot="end">
-            $0.00
+            {{ item?.price | currency}}
           </ion-note>
         </ion-item>
     
         <ion-item-options side="start">
-          <ion-item-option (click)="EditModal()">
+          <ion-item-option (click)="EditModal(item?.id)">
             <ion-icon slot="icon-only" name="create"></ion-icon>
           </ion-item-option>
-          <ion-item-option color="secondary">
+          <ion-item-option color="secondary" (click) = "statusItem(item.id)">
             <ion-icon slot="icon-only" name="eye-off"></ion-icon>
           </ion-item-option>
         </ion-item-options>
     
         <ion-item-options side="end">
-          <ion-item-option color="danger">
+          <ion-item-option color="danger" (click) = "deleteItem(item.id)">
             <ion-icon slot="icon-only" name="trash"></ion-icon>
           </ion-item-option>
         </ion-item-options>

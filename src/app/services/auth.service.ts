@@ -37,9 +37,10 @@ export class AuthService {
   }
 
   login(email: string, password: string): void {
+    console.log('entra a login servicio')
     this.afa.auth.signInWithEmailAndPassword(email, password).then((credentials) => {
       this.setUser(credentials.user);
-      this.navCtrl.navigateRoot(['']); //cambiar la ruta a donde se vaya a redirigir al loggear
+      this.navCtrl.navigateRoot(['/menu/checkout']); //cambiar la ruta a donde se vaya a redirigir al loggear
     }).catch((error) => {
       console.log(error);
     });

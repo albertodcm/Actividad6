@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -27,17 +28,14 @@ export class AppComponent implements OnInit {
       url: '/menu/items',
       icon: 'list'
     },
-    {
-      title: 'Logout',
-      url: '/menu/Exit',
-      icon: 'exit'
-    },
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private authService: AuthService,
+    private navCtrl: NavController
   ) {
     this.initializeApp();
   }
@@ -46,6 +44,12 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    });
+  }
+
+  logOut() {
+    this.authService.logout().then(() => {
+      this.navCtrl.navigateRoot(['']);
     });
   }
 

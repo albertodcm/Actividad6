@@ -6,16 +6,37 @@
 
 <ion-content>
 
-  <ion-item>
-    <ion-label position="floating">Name</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <ion-item  class="padding">
-    <ion-label position="floating">Price</ion-label>
-    <ion-input type="numbers"></ion-input>
-  </ion-item>
+  <form [formGroup] = "itemForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label type="text" position="floating">Name</ion-label>
+            <ion-input  formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-  <ion-button expand="block"(click)="dismiss()">UPDATE</ion-button>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label type="number" position="floating">Price</ion-label>
+            <ion-input  formControlName="price"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-  <ion-button expand="block" fill="outline" (click)="dismiss()">CANCEL</ion-button>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block"(click)="updateItem()">UPDATE</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" fill="outline" (click)="dismiss()">CANCEL</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
