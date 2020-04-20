@@ -11,8 +11,9 @@
     <ion-toolbar>
       <ion-title size="large">Checkout</ion-title>
     </ion-toolbar>
+    
     <ion-toolbar>
-      <ion-button expand="block">Charge $0.00</ion-button>
+      <ion-button [class.button-disabled]="total === '0'" disabled color="primary" expand="block" (click)="showCharge()">Charge ${{ total }}</ion-button>
     </ion-toolbar>
   </ion-header>
 
@@ -30,7 +31,12 @@
 
   <div  [ngSwitch]="status">
     <div *ngSwitchCase="'numbers'">
-      <p class="texto">${{balance}}</p>
+
+      <ion-text>
+        <h1  text-right class="texto">${{balance}}</h1>
+      </ion-text>
+
+
 
        
 
@@ -39,57 +45,6 @@
           <ion-button size="large" expand="full" (click)="Boton(number)">{{ number }}</ion-button>
         </ion-col>
       </ion-row>
-
-
-
-
-        <!-- <ion-row>
-          <ion-col>
-            <ion-button size="large" expand="full">1</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button  size="large" expand="full">2</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button size="large" expand="full">3</ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button size="large" expand="full">4</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button size="large" expand="full">5</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button size="large" expand="full">6</ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button size="large" expand="full">7</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button size="large" expand="full">8</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button size="large" expand="full">9</ion-button>
-          </ion-col>
-        </ion-row>
-
-      <ion-row>
-          <ion-col>
-            <ion-button size="large" expand="full">c</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button size="large" expand="full">0</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button size="large" expand="full">+</ion-button>
-          </ion-col>
-        </ion-row> -->
 
 
 
@@ -113,5 +68,5 @@
 </ion-content>
 
 <ion-footer no-shadow>
-  <ion-button expand="block" fill="outline">CLEAR ITEMS</ion-button>
+  <ion-button expand="block" fill="outline" (click)="clearEverything()">CLEAR ITEMS</ion-button>
 </ion-footer>

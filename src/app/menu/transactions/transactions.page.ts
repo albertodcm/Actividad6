@@ -14,7 +14,7 @@ export class TransactionsPage implements OnInit {
   ngOnInit() {
   }
 
-  async presentModal() {
+  async showTrans() {
     const modal = await this.modalCtrl.create({
       component: TransactionPage,
     });
@@ -23,7 +23,4 @@ export class TransactionsPage implements OnInit {
 
 
 
-  showTrans() {
-    this.presentModal();
-  }
 }

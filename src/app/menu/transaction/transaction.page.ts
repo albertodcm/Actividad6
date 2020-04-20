@@ -20,8 +20,4 @@ export class TransactionPage implements OnInit {
     this.modalCtrl.dismiss();
   }
 
-  back(): void {
-    this.navCtrl.navigateBack(['menu/transactions']);
-  }
-
 }

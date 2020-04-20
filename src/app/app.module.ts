@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { EditPageModule } from './menu/edit/edit.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ChargePageModule } from './menu/charge/charge.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +31,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     TransactionPageModule,
-    EditPageModule
+    EditPageModule,
+    ChargePageModule
   ],
   providers: [
     StatusBar,
