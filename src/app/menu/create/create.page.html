@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>create</ion-title>
+    <ion-title>Create a product</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,10 +18,17 @@
 
 </form>
 
-  <ion-button expand="block"(click)="CreateProduct()">ADD ITEM</ion-button>
+<ion-row>
+  <ion-col>
+    <ion-button expand="block"(click)="CreateProduct()">ADD ITEM</ion-button>
+  </ion-col>
+</ion-row>
 
-  <ion-button expand="block" fill="outline" (click)="dismiss()">CANCEL</ion-button>
-
+<ion-row>
+  <ion-col>
+    <ion-button expand="block" fill="outline" (click)="dismiss()">CANCEL</ion-button>
+</ion-col>
+</ion-row>
 
 
 

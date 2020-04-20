@@ -25,7 +25,7 @@ export class ItemsPage implements OnInit {
   getItems(): void {
     this.itemService.getItems().subscribe((items: Item[]) => {
       this.availableItems = items.filter((item: Item) => {
-        return item.status === 'available';
+        return item;
       });
     });
   }
@@ -36,24 +36,15 @@ export class ItemsPage implements OnInit {
     });
   }
 
+  statusItem(item: Item): void {
+    item.status = (item.status === 'available') ? 'hidden' : 'available';
 
-  statusItem(itemId: string): void {
-
-    // if (this.itemService) {
-    //   const updatedItem: Item = {
-    //     ...this.itemService
-    //     id: this.item.id
-    //   };
-
-    //   this.itemService.statusItem(updatedItem).then(() => {
-    //   }).catch((error) => {
-    //     console.log(error);
-    //   });
-    // } else {
-    //   console.log('error');
-    // }
+    this.itemService.updateItem(item).then(() => {
+      console.log('Cambio visibilidad');
+    }).catch((error) => {
+      console.log(error);
+    });
   }
-
 
   async CreateModal() {
     console.log('create items');
@@ -73,6 +64,5 @@ export class ItemsPage implements OnInit {
     });
     return await modal.present();
   }
-
 
 }

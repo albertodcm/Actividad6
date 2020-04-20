@@ -30,11 +30,20 @@
 
   <div  [ngSwitch]="status">
     <div *ngSwitchCase="'numbers'">
-      <p class="texto">$0.00</p>
+      <p class="texto">${{balance}}</p>
+
+       
+
+      <ion-row *ngFor="let numGroup of Numbers">
+        <ion-col *ngFor="let number of numGroup" >
+          <ion-button size="large" expand="full" (click)="Boton(number)">{{ number }}</ion-button>
+        </ion-col>
+      </ion-row>
 
 
 
-        <ion-row>
+
+        <!-- <ion-row>
           <ion-col>
             <ion-button size="large" expand="full">1</ion-button>
           </ion-col>
@@ -80,7 +89,7 @@
           <ion-col>
             <ion-button size="large" expand="full">+</ion-button>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
 
 
 
@@ -88,36 +97,19 @@
 
 
     <ion-list *ngSwitchCase="'products'">
+      <ion-item *ngFor= "let item of availableItems">
 
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-thumbnail>
-        <ion-label>Pollo</ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-thumbnail>
-        <ion-label>Pastel</ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-thumbnail>
-        <ion-label>Taza</ion-label>
+          <ion-thumbnail slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-thumbnail>
+          <ion-label>{{ item?.name }}</ion-label>
+          <ion-note slot="end">
+            {{ item?.price | currency}}
+          </ion-note>
       </ion-item>
 
     </ion-list>
-
-
-
-
   </div>
-
-  
 </ion-content>
 
 <ion-footer no-shadow>

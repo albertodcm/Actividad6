@@ -19,7 +19,7 @@ export class ItemService {
 
         return {id, ...data} as Item;
       })
-    )
+    );
   }
 
   getItems() {
@@ -46,10 +46,6 @@ export class ItemService {
 
   deleteItem(id: string) {
     return this.afs.doc(`items/${id}`).delete();
-  }
-
-  statusItem(item: Item) {
-    return this.afs.doc(`items/${item.id}`).update(item);
   }
 
 }
