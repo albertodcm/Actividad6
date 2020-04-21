@@ -22,31 +22,31 @@
 
     <ion-row class="general">
       <ion-col>
-        <ion-button expand="block" fill="solid">20% (${{ tip20 }}) </ion-button>
+        <ion-button expand="block" fill="solid" (click)="procesarPago('20')">20% (${{ tip20 }}) </ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row class="padding">
       <ion-col>
-        <ion-button expand="block" fill="solid">15% (${{ tip15 }})</ion-button>
+        <ion-button expand="block" fill="solid" (click)="procesarPago('15')">15% (${{ tip15 }})</ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row class="padding">
       <ion-col>
-        <ion-button expand="block" fill="solid">10% (${{ tip10 }})</ion-button>
+        <ion-button expand="block" fill="solid" (click)="procesarPago('10')">10% (${{ tip10 }})</ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row class="padding">
       <ion-col>
-        <ion-button expand="block" fill="solid" (click)="customTipAlert()">CUSTOM TIP</ion-button>
+        <ion-button expand="block" fill="solid" (click)="customTipAlert('customtip')">CUSTOM TIP</ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row class="padding">
       <ion-col>
-        <ion-button expand="block" fill="solid" (click)="procesarPago()">NO TIP</ion-button>
+        <ion-button expand="block" fill="solid" (click)="procesarPago('notip')">NO TIP</ion-button>
       </ion-col>
     </ion-row>
 

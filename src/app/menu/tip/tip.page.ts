@@ -14,6 +14,7 @@ export class TipPage implements OnInit {
   tip20 = 0;
   tip15 = 0;
   tip10 = 0;
+  button = '';
   // customTip = 0;
 
   constructor(public modalCtrl: ModalController,
@@ -68,17 +69,30 @@ export class TipPage implements OnInit {
         }
       ]
     });
+    this.button = 'customtip';
     await alert.present();
     const result = await alert.onDidDismiss();
     console.log(this.total);
-    this.procesarPago();
+    this.procesarPago(this.button);
   }
 
-  async procesarPago() {
-  this.modalCtrl.dismiss();
-  const modal = await this.modalCtrl.create({
+  async procesarPago(button) {
+    console.log('entro a procesar');
+    if (button === '20') {
+      console.log('es 20');
+      this.total = this.total + this.tip20;
+    } else if ( button === '15' ) {
+      console.log('es 15');
+      this.total = this.total + this.tip15;
+    } else if ( button === '10' ) {
+      console.log('es 10');
+      this.total = this.total + this.tip10;
+    }
+    console.log(this.total);
+    this.modalCtrl.dismiss();
+    const modal = await this.modalCtrl.create({
     component: SalePage,
   });
-  return await modal.present();
+    return await modal.present();
   }
 }
