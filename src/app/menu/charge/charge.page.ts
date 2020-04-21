@@ -10,17 +10,30 @@ import { Cart } from 'src/models/cart.model';
 export class ChargePage implements OnInit {
 
   cart: Cart;
-  total = '0';
+  subtotal = '0';
+  tax = 0;
 
   constructor(public modalCtrl: ModalController) { }
 
   ngOnInit() {
+    this.calcularTax();
   }
 
 
   dismiss() {
     console.log(' Entro al dismiss ');
     this.modalCtrl.dismiss();
+  }
+
+  calcularTax() {
+    // tslint:disable-next-line: radix
+       this.tax = ((parseInt(this.subtotal) / 100) * 9.75);
+       console.log(this.tax);
+
+       this.tax = parseFloat(this.tax.toFixed(2));
+
+       this.tax.toPrecision(2);
+       console.log(this.tax);
   }
 
 }

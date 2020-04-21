@@ -17,7 +17,7 @@ export class CheckoutPage implements OnInit {
   availableItems: Item[];
   status: 'numbers';
   balance = '0';
-  total = '0';
+  subtotal = '0';
   inputnueva = true;
   balanceVieja = '0';
   Numbers = [
@@ -43,7 +43,7 @@ export class CheckoutPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: ChargePage,
       componentProps: {
-        total: this.total
+        subtotal: this.subtotal
       }
     });
     return await modal.present();
@@ -79,16 +79,16 @@ export class CheckoutPage implements OnInit {
       } else if (symmbol === '+') {
         this.balanceVieja = this.balance;
         // tslint:disable-next-line: radix
-        this.total = '' + (parseInt(this.balanceVieja) + parseInt(this.total));
+        this.subtotal = '' + (parseInt(this.balanceVieja) + parseInt(this.subtotal));
         console.log(this.balance);
         console.log('Agregarse al carrito');
-        console.log(this.total);
+        console.log(this.subtotal);
         this.balance = '0';
         this.inputnueva = true;
       }
     }
 
     clearEverything() {
-      this.total = '0';
+      this.subtotal = '0';
     }
 }

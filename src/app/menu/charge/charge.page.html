@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-icon class="padding" size="large" name="arrow-back-outline" (click)="dismiss()"></ion-icon>
-    <ion-title>Sale ${{ total }}</ion-title>
+    <ion-title>Sale ${{ subtotal }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,13 +9,24 @@
 <ion-content>
 
 
+  <ion-item>
+
+    <ion-thumbnail slot="start">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-thumbnail>
+    <ion-label>producto</ion-label>
+    <ion-note slot="end">
+      precio
+    </ion-note>
+</ion-item>
+
 
   <ion-item>
     <ion-label>
       <h2>Subtotal</h2>
     </ion-label>
     <ion-note slot="end" color="secondary">
-      $0.00
+      ${{ subtotal }}
     </ion-note>
   </ion-item>
 
@@ -24,25 +35,16 @@
       <h2>Tax (9.75%)</h2>
     </ion-label>
     <ion-note slot="end" color="secondary">
-      $0.00
+      ${{ tax | number:'1.2-2' }}
     </ion-note>
   </ion-item>
 
   <ion-item>
     <ion-label>
-      <h2>Tips</h2>
-    </ion-label>
-    <ion-note slot="end" color="secondary">
-      $0.00
-    </ion-note>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <h2>Total</h2>
+      <h2 class="texto">Total</h2>
     </ion-label>
     <ion-note slot="end" color="primary">
-      ${{ total }}
+      total
     </ion-note>
   </ion-item>
 
