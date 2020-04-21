@@ -33,6 +33,14 @@ const routes: Routes = [
     path: '',
     redirectTo: '/menu/checkout',
     pathMatch: 'full'
+  },
+  {
+    path: 'tip',
+    loadChildren: () => import('./tip/tip.module').then( m => m.TipPageModule)
+  },
+  {
+    path: 'sale',
+    loadChildren: () => import('./sale/sale.module').then( m => m.SalePageModule)
   }
 ];
 

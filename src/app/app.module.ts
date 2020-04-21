@@ -19,6 +19,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ChargePageModule } from './menu/charge/charge.module';
 
 import { IonTextAvatar } from 'ionic-text-avatar';
+import { TipPageModule } from './menu/tip/tip.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,8 @@ import { IonTextAvatar } from 'ionic-text-avatar';
     FormsModule,
     TransactionPageModule,
     EditPageModule,
-    ChargePageModule
+    ChargePageModule,
+    TipPageModule
   ],
   providers: [
     StatusBar,

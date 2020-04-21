@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tip</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="general">
+
+    <ion-row>
+      <ion-col>
+        <h1>
+          Add a tip?
+        </h1>  
+        <h4>
+           ${{ total }}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="general">
+      <ion-col>
+        <ion-button expand="block" fill="solid">20% (${{ tip20 }}) </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="padding">
+      <ion-col>
+        <ion-button expand="block" fill="solid">15% (${{ tip15 }})</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="padding">
+      <ion-col>
+        <ion-button expand="block" fill="solid">10% (${{ tip10 }})</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="padding">
+      <ion-col>
+        <ion-button expand="block" fill="solid" (click)="customTipAlert()">CUSTOM TIP</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="padding">
+      <ion-col>
+        <ion-button expand="block" fill="solid">NO TIP</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+
+
+</ion-content>

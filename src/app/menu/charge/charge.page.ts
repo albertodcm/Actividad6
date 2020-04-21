@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Cart } from 'src/models/cart.model';
+import { TipPage } from '../tip/tip.page';
 
 @Component({
   selector: 'app-charge',
@@ -12,6 +13,7 @@ export class ChargePage implements OnInit {
   cart: Cart;
   subtotal = '0';
   tax = 0;
+  total = 0;
 
   constructor(public modalCtrl: ModalController) { }
 
@@ -32,8 +34,21 @@ export class ChargePage implements OnInit {
 
        this.tax = parseFloat(this.tax.toFixed(2));
 
-       this.tax.toPrecision(2);
-       console.log(this.tax);
+       // tslint:disable-next-line: radix
+       this.total = (parseInt(this.subtotal) + this.tax);
+
+       this.total = parseFloat(this.total.toFixed(2));
+  }
+
+
+  async showTip() {
+    const modal = await this.modalCtrl.create({
+      component: TipPage,
+      componentProps: {
+        total: this.total
+      }
+    });
+    return await modal.present();
   }
 
 }
