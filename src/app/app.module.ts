@@ -20,6 +20,7 @@ import { ChargePageModule } from './menu/charge/charge.module';
 
 import { IonTextAvatar } from 'ionic-text-avatar';
 import { TipPageModule } from './menu/tip/tip.module';
+import { SalePageModule } from './menu/sale/sale.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +37,8 @@ import { TipPageModule } from './menu/tip/tip.module';
     TransactionPageModule,
     EditPageModule,
     ChargePageModule,
-    TipPageModule
+    TipPageModule,
+    SalePageModule
   ],
   providers: [
     StatusBar,

@@ -21,7 +21,6 @@ export class ChargePage implements OnInit {
     this.calcularTax();
   }
 
-
   dismiss() {
     console.log(' Entro al dismiss ');
     this.modalCtrl.dismiss();
@@ -31,17 +30,15 @@ export class ChargePage implements OnInit {
     // tslint:disable-next-line: radix
        this.tax = ((parseInt(this.subtotal) / 100) * 9.75);
        console.log(this.tax);
-
        this.tax = parseFloat(this.tax.toFixed(2));
-
        // tslint:disable-next-line: radix
        this.total = (parseInt(this.subtotal) + this.tax);
-
        this.total = parseFloat(this.total.toFixed(2));
   }
 
 
   async showTip() {
+    this.modalCtrl.dismiss();
     const modal = await this.modalCtrl.create({
       component: TipPage,
       componentProps: {
@@ -50,5 +47,4 @@ export class ChargePage implements OnInit {
     });
     return await modal.present();
   }
-
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sale',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalePage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtr: NavController,
+              public modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
 
+  checkout() {
+    console.log('Entro al boton');
+    this.navCtr.navigateForward(['/menu/checkout']);
+    console.log('bai');
+    this.modalCtrl.dismiss();
+  }
 }

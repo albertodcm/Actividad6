@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
+import { SalePage } from '../sale/sale.page';
 
 @Component({
   selector: 'app-tip',
@@ -13,9 +14,10 @@ export class TipPage implements OnInit {
   tip20 = 0;
   tip15 = 0;
   tip10 = 0;
-  customTip = 0;
+  // customTip = 0;
 
-  constructor(public modalCtrl: ModalController, public alertController: AlertController) { }
+  constructor(public modalCtrl: ModalController,
+              public alertController: AlertController) { }
 
   ngOnInit() {
     this.calcularTip();
@@ -48,29 +50,35 @@ export class TipPage implements OnInit {
       header: 'Custom tip:',
       inputs: [
         {
-          name: 'Custom tip',
+          name: 'customTip',
           type: 'number',
-          placeholder: 'ingrese la cantidad'
+          placeholder: 'Add your custom tip'
         }
       ],
       buttons: [
         {
-          text: 'cancel',
-          role: 'camcel',
+          text: 'CANCEL',
+          role: 'cancel',
         }, {
-          text: 'OK'
+          text: 'OK',
+          handler: data => {
+            console.log(data.customTip);
+            this.total = this.total + parseFloat(data.customTip);
+          }
         }
       ]
     });
     await alert.present();
-    let result = await alert.onDidDismiss();
-
+    const result = await alert.onDidDismiss();
+    console.log(this.total);
+    this.procesarPago();
   }
 
-  noTip() {
-
+  async procesarPago() {
+  this.modalCtrl.dismiss();
+  const modal = await this.modalCtrl.create({
+    component: SalePage,
+  });
+  return await modal.present();
   }
-
-
-
 }
