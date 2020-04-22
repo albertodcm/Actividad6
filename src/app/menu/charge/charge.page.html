@@ -26,7 +26,7 @@
       <h2>Subtotal</h2>
     </ion-label>
     <ion-note slot="end" color="secondary">
-      ${{ subtotal }}
+      {{ subtotal | currency }}
     </ion-note>
   </ion-item>
 
@@ -44,7 +44,7 @@
       <h2 class="texto">Total</h2>
     </ion-label>
     <ion-note slot="end" color="primary">
-      {{ total }}
+      {{ total | currency }}
     </ion-note>
   </ion-item>
 

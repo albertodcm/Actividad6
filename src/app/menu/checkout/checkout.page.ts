@@ -46,6 +46,7 @@ export class CheckoutPage implements OnInit {
         subtotal: this.subtotal
       }
     });
+    this.clearEverything();
     return await modal.present();
   }
 

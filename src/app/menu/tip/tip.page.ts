@@ -90,8 +90,10 @@ export class TipPage implements OnInit {
     }
     console.log(this.total);
     this.modalCtrl.dismiss();
+    this.total = 0;
     const modal = await this.modalCtrl.create({
     component: SalePage,
+
   });
     return await modal.present();
   }

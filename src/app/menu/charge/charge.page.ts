@@ -38,6 +38,7 @@ export class ChargePage implements OnInit {
 
 
   async showTip() {
+    this.subtotal = '0';
     this.modalCtrl.dismiss();
     const modal = await this.modalCtrl.create({
       component: TipPage,

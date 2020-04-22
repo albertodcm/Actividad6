@@ -1,6 +1,6 @@
 export interface Cart {
-    item: string;
-    customEntries: number;
+    item: {};
+    customEntries: Object[];
     totalQuantity: number;
     subtotal: number;
     tax: number;
