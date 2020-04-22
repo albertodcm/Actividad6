@@ -28,7 +28,6 @@ export class CreatePage implements OnInit {
 
   }
 
-
   CreateProduct(): void {
     if (this.itemForm.valid) {
       const addItem: Item = {
@@ -51,5 +50,4 @@ export class CreatePage implements OnInit {
     console.log(' Entro al dismiss ');
     this.modalCtrl.dismiss();
   }
-
 }

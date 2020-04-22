@@ -14,20 +14,16 @@ export class EditPage implements OnInit {
   item: Item;
   itemForm: FormGroup;
 
-
   constructor(public modalCtrl: ModalController,
               private navParams: NavParams,
               private itemService: ItemService) { }
 
   ngOnInit() {
     this.initForm();
-
     const itemId = this.navParams.get('itemId');
-
     if (itemId) {
       this.getItem(itemId);
     } else {
-
     }
   }
 

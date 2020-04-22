@@ -1,9 +1,9 @@
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 export interface Transaction {
-    
+
     id: string;
-    customEntries: Object[];
+    customEntries: object[];
     items: {};
     totalQuantity: number;
     subtotal: number;

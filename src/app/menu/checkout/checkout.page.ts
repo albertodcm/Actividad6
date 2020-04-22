@@ -31,8 +31,6 @@ export class CheckoutPage implements OnInit {
     ['C', 0, '+']
   ];
 
-
-
   constructor(private itemService: ItemService,
               public modalCtrl: ModalController) {
     this.status = 'numbers';
@@ -41,7 +39,6 @@ export class CheckoutPage implements OnInit {
   ngOnInit() {
     this.getItems();
   }
-
 
   async showCharge(cartId: string) {
     const modal = await this.modalCtrl.create({
@@ -53,7 +50,6 @@ export class CheckoutPage implements OnInit {
     this.clearEverything();
     return await modal.present();
   }
-
 
     segmentChanged(ev: any) {
       console.log('Segment changed', ev);
@@ -80,7 +76,7 @@ export class CheckoutPage implements OnInit {
             this.inputnueva = true;
             this.salida = 'no';
           }
-          //symmbol.toString();
+          // symmbol.toString();
         } else {
 
           let temporal = Number((symmbol / 100));

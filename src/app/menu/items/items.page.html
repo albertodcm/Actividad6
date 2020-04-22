@@ -14,9 +14,7 @@
   </ion-header>
 
   <div id="container">
-
     <ion-list>
-  
       <ion-item-sliding *ngFor= "let item of availableItems">
         <ion-item>
           <ion-label>
@@ -43,16 +41,11 @@
           </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
-    
-
     </ion-list>
-
-
   </div>
 
 
 </ion-content>
-
 <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="CreateModal()">
   <ion-fab-button>
     <ion-icon name="add"></ion-icon>

@@ -14,7 +14,6 @@ export class TransactionPage implements OnInit {
   ngOnInit() {
   }
 
-
   dismiss() {
     console.log(' Entro al dismiss ');
     this.modalCtrl.dismiss();

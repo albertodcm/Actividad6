@@ -64,5 +64,4 @@ export class ItemsPage implements OnInit {
     });
     return await modal.present();
   }
-
 }

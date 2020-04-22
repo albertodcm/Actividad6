@@ -9,13 +9,13 @@ import { TransactionPage } from '../transaction/transaction.page';
 })
 export class TransactionsPage implements OnInit {
 
-  myDate: String = new Date().toISOString();
-  
+  myDate: string = new Date().toISOString();
+
   constructor(public modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
-  
+
   async showTrans() {
     const modal = await this.modalCtrl.create({
       component: TransactionPage,
