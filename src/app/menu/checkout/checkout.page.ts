@@ -5,6 +5,8 @@ import { isNumber } from 'util';
 import { Cart } from 'src/models/cart.model';
 import { ModalController } from '@ionic/angular';
 import { ChargePage } from '../charge/charge.page';
+import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
+import { exists } from 'fs';
 
 @Component({
   selector: 'app-checkout',
@@ -20,6 +22,8 @@ export class CheckoutPage implements OnInit {
   subtotal = '0';
   inputnueva = true;
   balanceVieja = '0';
+  temporal;
+  salida = 'si';
   Numbers = [
     [1, 2, 3],
     [4, 5, 6],
@@ -66,21 +70,34 @@ export class CheckoutPage implements OnInit {
 
     // tslint:disable-next-line: variable-name
     Boton(symmbol) {
+
       if (isNumber(symmbol)) {
         console.log('es un numero');
         if (this.inputnueva) {
-        this.balance = '' + symmbol;
+          this.salida = 'si';
+          this.balance = (symmbol / 100).toString();
+          if (symmbol === 0) {
+            this.inputnueva = true;
+            this.salida = 'no';
+          }
+          //symmbol.toString();
         } else {
-          this.balance += '' + symmbol;
+
+          let temporal = Number((symmbol / 100));
+          console.log(temporal);
+
+          this.balance = ( (Number(this.balance) * 10) + temporal).toString();
         }
+        if (this.salida === 'si') {
         this.inputnueva = false;
+        }
       } else if (symmbol === 'C') {
         this.balance = '0';
         this.inputnueva = true;
       } else if (symmbol === '+') {
         this.balanceVieja = this.balance;
         // tslint:disable-next-line: radix
-        this.subtotal = '' + (parseInt(this.balanceVieja) + parseInt(this.subtotal));
+        this.subtotal = '' + (parseFloat(this.balanceVieja) + parseFloat(this.subtotal));
         console.log(this.balance);
         console.log('Agregarse al carrito');
         console.log(this.subtotal);
