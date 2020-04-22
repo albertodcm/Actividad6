@@ -52,7 +52,7 @@ export class ChargePage implements OnInit {
 
 
   async showTip() {
-    this.presentLoading('Processing Payment...');
+    await this.presentLoading('Processing Payment...');
     this.subtotal = '0';
     this.modalCtrl.dismiss();
     const modal = await this.modalCtrl.create({

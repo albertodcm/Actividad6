@@ -101,7 +101,7 @@ export class TipPage implements OnInit {
       console.log('es 10');
       this.total = this.total + this.tip10;
     }
-    this.presentLoading('Processing Tip...');
+    await this.presentLoading('Processing Tip...');
     console.log(this.total);
     this.modalCtrl.dismiss();
     this.total = 0;
