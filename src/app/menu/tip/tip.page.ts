@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
 import { SalePage } from '../sale/sale.page';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tip',
@@ -18,10 +19,22 @@ export class TipPage implements OnInit {
   // customTip = 0;
 
   constructor(public modalCtrl: ModalController,
-              public alertController: AlertController) { }
+              public alertController: AlertController,
+              public loadingController: LoadingController) { }
 
   ngOnInit() {
     this.calcularTip();
+  }
+
+  async presentLoading(text: string) {
+    const loading = await this.loadingController.create({
+      message: text,
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
   async showConfirmation(cartId: string) {
@@ -88,6 +101,7 @@ export class TipPage implements OnInit {
       console.log('es 10');
       this.total = this.total + this.tip10;
     }
+    this.presentLoading('Processing Tip...');
     console.log(this.total);
     this.modalCtrl.dismiss();
     this.total = 0;

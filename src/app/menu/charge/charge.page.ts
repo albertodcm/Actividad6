@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Cart } from 'src/models/cart.model';
 import { TipPage } from '../tip/tip.page';
+import { LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-charge',
@@ -15,10 +17,22 @@ export class ChargePage implements OnInit {
   tax = 0;
   total = 0;
 
-  constructor(public modalCtrl: ModalController) { }
+  constructor(public modalCtrl: ModalController,
+              public loadingController: LoadingController) { }
 
   ngOnInit() {
     this.calcularTax();
+  }
+
+  async presentLoading(text: string) {
+    const loading = await this.loadingController.create({
+      message: text,
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
   dismiss() {
@@ -38,6 +52,7 @@ export class ChargePage implements OnInit {
 
 
   async showTip() {
+    this.presentLoading('Processing Payment...');
     this.subtotal = '0';
     this.modalCtrl.dismiss();
     const modal = await this.modalCtrl.create({
