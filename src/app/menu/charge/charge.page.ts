@@ -42,11 +42,11 @@ export class ChargePage implements OnInit {
 
   calcularTax() {
     // tslint:disable-next-line: radix
-       this.tax = ((parseInt(this.subtotal) / 100) * 9.75);
+       this.tax = ((parseFloat(this.subtotal) / 100) * 9.75);
        console.log(this.tax);
        this.tax = parseFloat(this.tax.toFixed(2));
        // tslint:disable-next-line: radix
-       this.total = (parseInt(this.subtotal) + this.tax);
+       this.total = (parseFloat(this.subtotal) + this.tax);
        this.total = parseFloat(this.total.toFixed(2));
   }
 

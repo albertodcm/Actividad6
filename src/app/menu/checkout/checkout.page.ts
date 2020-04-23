@@ -6,7 +6,7 @@ import { Cart } from 'src/models/cart.model';
 import { ModalController } from '@ionic/angular';
 import { ChargePage } from '../charge/charge.page';
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
-import { exists } from 'fs';
+//import { exists } from 'fs';
 
 @Component({
   selector: 'app-checkout',
